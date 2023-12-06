@@ -1,0 +1,2 @@
+# BCStore
+Tienda usando SCs.
