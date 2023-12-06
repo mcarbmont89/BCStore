@@ -1,0 +1,79 @@
+pragma solidity ^0.8.0;
+
+contract LaptopStore {
+    struct Laptop {
+        string brand;
+        string modelName;
+        string core;
+        string clockSpeed;
+        string ramSize;
+        string storageType;
+        string displayType;
+        string displaySize;
+        string graphicsProcessor;
+        string os;
+        string price;
+    }
+
+    Laptop[] public laptops;
+
+    function addLaptop(
+        string memory _brand,
+        string memory _modelName,
+        string memory _core,
+        string memory _clockSpeed,
+        string memory _ramSize,
+        string memory _storageType,
+        string memory _displayType,
+        string memory _displaySize,
+        string memory _graphicsProcessor,
+        string memory _os,
+        string memory _price
+    ) public {
+        laptops.push(
+            Laptop(
+                _brand,
+                _modelName,
+                _core,
+                _clockSpeed,
+                _ramSize,
+                _storageType,
+                _displayType,
+                _displaySize,
+                _graphicsProcessor,
+                _os,
+                _price
+            )
+        );
+    }
+
+    function getLaptop(uint _index) public view returns (
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory
+    ) {
+        require(_index < laptops.length, "Index out of bounds");
+        Laptop memory laptop = laptops[_index];
+        return (
+            laptop.brand,
+            laptop.modelName,
+            laptop.core,
+            laptop.clockSpeed,
+            laptop.ramSize,
+            laptop.storageType,
+            laptop.displayType,
+            laptop.displaySize,
+            laptop.graphicsProcessor,
+            laptop.os,
+            laptop.price
+        );
+    }
+}
