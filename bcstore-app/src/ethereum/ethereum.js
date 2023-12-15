@@ -1,8 +1,8 @@
 // ethereum.js
-import {ethers} from "ethers";
+import { ethers } from "ethers";
 
 // Reemplaza con la dirección de tu contrato desplegado
-const contractAddress = "0x9Eb99847Fc2734B35F8DdF6720117d26c6c3326A";
+const contractAddress = "0xaB0202f594a9026d1c0f54C3c23DcA7B93f3EE9b";
 
 // Reemplaza con el ABI de tu contrato
 const contractABI = [
@@ -207,7 +207,7 @@ const contractABI = [
     stateMutability: "view",
     type: "function",
   },
-]; // Tu ABI va aquí
+];
 
 export const getEthereumContract = () => {
   let provider;
