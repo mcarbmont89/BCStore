@@ -1,26 +1,41 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
-import SCConnect from "../../components/SCConnect";
+import { useProductosStore } from "@/stores/useProductos";
+
 const ProductosPage = () => {
-  const [productos, setProductos] = useState([]);
-
-  useEffect(() => {
-    // Aquí debes cargar los productos desde tu API o base de datos
-  }, []);
-
+  const productos = useProductosStore((state) => state.productos);
+  console.log(productos);
   return (
-    <div><SCConnect></SCConnect></div>
+    <div className="max-w-screen-xl mx-auto mt-8">
+      <h1 className="text-xl font-medium mb-4">Productos</h1>
+      <div className="flex flex-wrap justify-between">
+        {productos.map((producto, index) => (
+          <div key={producto["id"]} className="mt-4">
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <img
+                src="/bclaptop.png"
+                alt="Imagen del producto"
+                className="mb-4 w-[300px]"
+              />
+              <h3 className="text-xl text-gray-600 font-semibold">
+                {producto["brand"]} {producto["modelName"]}
+              </h3>
+              <p className="text-gray-600">${producto["price"]}</p>
+              <div className="flex justify-center mt-6">
+                <Link
+                  href={`productos/` + producto["id"]}
+                  className="px-4 py-2 rounded-md text-white bg-gray-600"
+                >
+                  Ver más
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
 export default ProductosPage;
-
-/* <h1>Productos</h1>
-            {productos.map((producto) => (
-                <div key={producto.id}>
-                    <h2>{producto.nombre}</h2>
-                    <p>{producto.descripcion}</p>
-                    <Link href={`/productos/${producto.id}`}>Ver Más</Link>
-                </div>
-            ))} */
