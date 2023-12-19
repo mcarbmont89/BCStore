@@ -1,6 +1,7 @@
 import React from "react";
-import { subirProductos } from "../subirProductos/subirProductos";
-import { verProductos } from "../verProductos/verProductos";
+import { subirProductos } from "../subirProductos";
+import { verProductos } from "../verProductos";
+import Button from "./Button"
 
 const SCConnect = () => {
   const handleSubirProductos = async () => {
@@ -11,9 +12,9 @@ const SCConnect = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleSubirProductos}>Subir Productos</button>
-      <button onClick={handleVerProductos}>Ver Productos</button>
+    <div className="flex gap-2">
+      <Button onClick={handleSubirProductos}>Subir Productos</Button>
+      <Button onClick={handleVerProductos}>Ver Productos</Button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 "use client"// subirProductos.js
-import { getEthereumContract } from "../ethereum/ethereum";
+import { getEthereumContract } from "../ethereum";
 
 const laptopData = require("../../public/laptop_data_converted.json"); // Asegúrate de tener el path correcto
 
